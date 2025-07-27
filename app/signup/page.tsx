@@ -3,8 +3,10 @@
 import "./signup.css";
 import React, { useActionState } from "react";
 import { handleSubmit } from "./actions";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
   const [state, action, pending] = useActionState(handleSubmit);
 
   return (
@@ -62,6 +64,20 @@ export default function SignUp() {
         <button type="submit" className="submit-btn" disabled={pending}>
           {pending ? "Creating Account..." : "Create Account"}
         </button>
+
+        <p>
+          Already registered?{" "}
+          <a
+            style={{
+              cursor: "pointer",
+              textDecoration: "underline",
+              color: "lightgreen",
+            }}
+            onClick={() => router.push("/signin")}
+          >
+            Sign In
+          </a>
+        </p>
       </form>
     </div>
   );

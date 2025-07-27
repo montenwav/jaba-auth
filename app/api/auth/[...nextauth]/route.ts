@@ -1,10 +1,13 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { prisma } from "@/app/prisma/prisma";
+import { prisma } from "@/prisma/prisma";
 import bcrypt from "bcrypt";
+import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions: NextAuthOptions = {
-  // Configure one or more authentication providers
+const authOptions: NextAuthOptions = {
+  pages: {
+    signIn: "/signin",
+  },
   providers: [
     CredentialsProvider({
       name: "Sign In",
@@ -24,7 +27,6 @@ export const authOptions: NextAuthOptions = {
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
         });
-
         if (!user) {
           return null;
         }
@@ -43,6 +45,10 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
         };
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
 };

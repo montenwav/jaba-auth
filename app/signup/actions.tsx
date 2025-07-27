@@ -1,7 +1,7 @@
 "use server";
-import { SignUpFormData } from "../lib/definitions";
+import { SignUpFormData } from "@/app/lib/definitions";
 import bcrypt from "bcrypt";
-import { prisma } from "@/app/prisma/prisma";
+import { prisma } from "@/prisma/prisma";
 import { redirect } from "next/navigation";
 
 export async function handleSubmit(state, formData) {
@@ -24,10 +24,9 @@ export async function handleSubmit(state, formData) {
     return { errors: { email: `Email ${email} already exists` } };
   }
 
-  // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const data = await prisma.user.create({
+  await prisma.user.create({
     data: {
       name,
       email,
@@ -35,5 +34,5 @@ export async function handleSubmit(state, formData) {
     },
   });
 
-  redirect("/api/auth/signin");
+  return redirect("/signin");
 }

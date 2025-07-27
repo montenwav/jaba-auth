@@ -247,3 +247,90 @@ body::before {
 .error-message {
   color: red;
 }
+
+/* Google Sign-In Button Styles */
+.google-signin-btn {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #3c4043;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 200px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.google-signin-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #d2d6da;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
+    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+}
+
+.google-signin-btn:active {
+  background-color: #f1f3f4;
+  border-color: #c6c6c6;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.google-signin-btn:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15), 0 0 0 2px rgba(66, 133, 244, 0.3);
+}
+
+.google-signin-btn:disabled {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  color: #9aa0a6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Google Logo Icon */
+.google-logo {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Alternative dark theme button */
+.google-signin-btn--dark {
+  background-color: #4285f4;
+  border-color: #4285f4;
+  color: #ffffff;
+}
+
+.google-signin-btn--dark:hover {
+  background-color: #357ae8;
+  border-color: #357ae8;
+}
+
+.google-signin-btn--dark:active {
+  background-color: #2d5aa0;
+  border-color: #2d5aa0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .google-signin-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
