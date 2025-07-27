@@ -3,12 +3,23 @@
 import "../signup/signup.css";
 import { useRouter, useSearchParams } from "next/navigation";
 import { handleSubmit } from "./actions";
-import React, { useActionState } from "react";
+import React, { Suspense, useActionState } from "react";
 import { signIn } from "next-auth/react";
 
-export default function SignIn() {
+export default function Wrapper() {
+  return (
+    <Suspense>
+      <SignIn />
+    </Suspense>
+  );
+}
+
+function SignIn() {
   const router = useRouter();
-  const [state, action, pending] = useActionState(handleSubmit);
+  const [state, action, pending] = useActionState(handleSubmit, {
+    email: "",
+    password: "",
+  });
   const searchParams = useSearchParams();
   const error = searchParams.get("error") && "Password or email is not valid";
 

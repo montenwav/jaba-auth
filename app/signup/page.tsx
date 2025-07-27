@@ -7,7 +7,10 @@ import { useRouter } from "next/navigation";
 
 export default function SignUp() {
   const router = useRouter();
-  const [state, action, pending] = useActionState(handleSubmit);
+  const [state, action, pending] = useActionState(handleSubmit, {
+    email: "",
+    password: "",
+  });
 
   return (
     <div className="form-container">

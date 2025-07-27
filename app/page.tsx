@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { LoginButton, LogoutButton } from "./auth";
 import { useSession } from "next-auth/react";
 
-export function Main() {
+export default function Page() {
   const { data: session } = useSession();
 
   return (
@@ -41,5 +41,3 @@ export function Main() {
     </div>
   );
 }
-
-export default Main;
