@@ -10,17 +10,16 @@
     "postinstall": "prisma generate"
   },
   "prisma": {
-    "seed": "tsx prisma.ts"
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^6.12.0",
     "@prisma/client": "^6.12.0",
+    "@prisma/extension-accelerate": "^2.0.2",
     "bcrypt": "^6.0.0",
     "next": "15.4.1",
     "next-auth": "^4.24.11",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tsx": "^4.20.3",
     "zod": "^4.0.5"
   },
   "devDependencies": {
@@ -30,6 +29,7 @@
     "@types/react-dom": "^19",
     "node": "^20.19.4",
     "prisma": "^6.12.0",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }

@@ -17,6 +17,4 @@ export async function handleSubmit(state, formData) {
     redirect: true,
     callbackUrl: "/",
   });
-
-  return result;
 }

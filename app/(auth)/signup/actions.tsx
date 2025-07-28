@@ -25,6 +25,7 @@ export async function handleSubmit(state, formData) {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
+  console.log(prisma.user);
 
   await prisma.user.create({
     data: {
